@@ -15,9 +15,8 @@ function components(...components) {
 ReactDOM.render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/" element={components(<Navbar avatar className="bg-transparent fixed top-0 w-full z-50 py-4 px-2" />, <App />)} />
             <Route path="/forest" element={components(<Navbar title="Forest" backButton />, <Forest />)} />
-            <Route path="/forest/canvas" element={components(<Navbar title="Forest" backButton />, <ForestCanvas />)} />
         </Routes>
     </BrowserRouter>,
     document.getElementById('root')
