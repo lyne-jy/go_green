@@ -3,8 +3,6 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/outline";
 
-import "../ProgressBar.css";
-
 export default function Checkout() {
   const [open, setOpen] = useState(true);
 

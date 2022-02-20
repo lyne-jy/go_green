@@ -1,20 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import './index.css';
-import App from './App';
+import "./index.css";
+import App from "./App";
 import Forest from "./pages/Forest";
-import ForestCanvas from './components/ForestCanvas';
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar";
 
 function components(...components) {
-    return (
-        <>
-            {components.map(component => component)}
-        </>
-    );
+  return <>{components.map((component) => component)}</>;
 }
 
 ReactDOM.render(
