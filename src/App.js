@@ -97,39 +97,41 @@ const App = () => {
 
     return (
         <div>
-        <Transition.Root show={showSelection} as={Fragment}>
-            <Dialog 
-                    onClose={() => setShowSelection(false)}
-                    className="z-40 absolute bottom-0 w-full flex justify-center">
-                <div className="absolute bottom-0 w-50 mb-40 bg-white p-5 border-b border-gray-200 rounded-md">
-                <Transition.Child
-                    as={Fragment}
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                >
-                    <div>
-                        <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Choose your transportation</h3>
-                        <ul className="mt-5 space-y-6">
-                            {transports.map((item) => (
-                                <li key={item.name} className="flow-root">
-                                    <div
-                                        onClick={() => handleTransportSelect(item)}
-                                        className="p-3 flex justify-between items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 transition ease-in-out duration-150"
-                                    >
-                                        <img src={item.icon} className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
-                                        <span className="ml-4">{item.name.toUpperCase()}</span>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
+            <Transition.Root show={showSelection} as={Fragment}>
+                <Dialog 
+                        onClose={() => setShowSelection(false)}
+                        className="z-40 absolute bottom-0 w-full flex justify-center">
+                    <div className="absolute bottom-0 w-50 mb-40 bg-white p-5 border-b border-gray-200 rounded-md">
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <div>
+                            <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Choose your transportation</h3>
+                            <ul className="mt-5 space-y-6">
+                                {transports.map((item) => (
+                                    <li key={item.name} className="flow-root">
+                                        <div
+                                            onClick={() => handleTransportSelect(item)}
+                                            className="p-3 flex justify-between items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 transition ease-in-out duration-150"
+                                        >
+                                            <img src={item.icon} className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
+                                            <span className="ml-4">{item.name.toUpperCase()}</span>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </Transition.Child>
                     </div>
-                </Transition.Child>
-                </div>
-            </Dialog>
+                </Dialog>
+            </Transition.Root>
+
             <Checkout open={open} setOpen={setOpen} data={data}/>
             <div className="fixed w-full h-full z-0">
                 <Map zoom={zoom} center={center}>
@@ -159,7 +161,6 @@ const App = () => {
                     <img src={transport.icon} className="flex-shrink-0 h-6 w-6 text-gray-400"/>
                 </button>}
             </div>
-        </Transition.Root>
         </div>
     );
 }
