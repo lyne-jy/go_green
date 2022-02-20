@@ -1,11 +1,23 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/outline";
 
 import "./ProgressBar.css";
+import { DataContext } from "..";
 
-export default function Checkout({open, setOpen, data}) {
+export default function Checkout({ open, setOpen, data }) {
+  const context = useContext(DataContext);
+  const [total, setTotal] = useState(context.current);
+
+  useEffect(() => {
+    if (open) {
+      setTimeout(() => {
+        setTotal(total + data + 1000);
+      }, 2000);
+    }
+  }, [open]);
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -57,10 +69,10 @@ export default function Checkout({open, setOpen, data}) {
                   >
                     Green power is accumulating!
                   </Dialog.Title>
-                  <div className="w-full h-6 bg-green-200 rounded-full dark:bg-green-700 my-5">
+                  <div className="w-full h-6 bg-green-200 rounded-full dark:bg-green-700 my-5 relative">
                     <div
-                        className="h-6 bg-green-400 rounded-full dark:bg-green-300 ProgressBar"
-                        style={{ width: "15%" }}
+                        className="h-6 bg-green-400 rounded-full dark:bg-green-300 progress-bar absolute"
+                        style={{ "width": total / 100 + "%" }}
                     />
                   </div>
                   <div className="mt-2">
