@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
 import Forest from "./pages/Forest";
-import Navbar from './components/Nav';
+import Navbar from './components/Navbar';
 
 function components(...components) {
     return (
