@@ -33,7 +33,7 @@ const tree_types = [
 const ForestCanvas = () => {
     return (
         <Suspense fallback={ <></> }>
-            <Canvas colorManagement camera={{ position: [45, 45, 45], fov: 2, zoom: 0.4, near: 30 }} className="small-tree-icon">
+            <Canvas colorManagement camera={{ position: [45, 45, 45], fov: 2, zoom: 0.4 }} className="small-tree-icon">
                 <color attach="background" args={['#d6f9ff']} />
                 <spotLight position={[5, 5, 0]} angle={90} intensity={0.7} />
                 <spotLight position={[5, 5, 90]} angle={180} intensity={0.9} />
@@ -41,7 +41,9 @@ const ForestCanvas = () => {
                 <TreeCone position={[0, -0.6, 0]} />
                 <TreeBlocks position={[1, -0.6, 0]} />
                 <TreePineRoundC position={[2, -0.6, 0]} />
-                <GroundGrass position={[5,5,5]} />
+                <GroundGrass position={[-3, -4, -5]} />
+                <GroundGrass position={[-5, -4, -5]} />
+                <GroundGrass position={[-7, -4, -5]} />
             </Canvas>
         </Suspense>
     )

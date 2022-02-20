@@ -10,7 +10,7 @@ const StoneTalld = (props) => {
 
     return (
         <mesh position={props.position}>
-            <primitive object={obj.scene} map={txt} />
+            <primitive object={obj.scene.clone(true)} />
         </mesh>
     )
 }
