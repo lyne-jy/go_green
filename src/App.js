@@ -1,18 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { ArrowLeftIcon } from "@heroicons/react/solid";
-import Navbar from "./components/nav";
-import TreeTable from "./components/treeTable";
-import TreeList from "./components/treeList";
 import React from "react";
 
-function App() {
+import "./App.css";
+
+const App = () => {
   return (
-    <React.Fragment>
-      <Navbar />
-      <TreeTable />
-      <TreeList />
-    </React.Fragment>
+    <div className="App">
+    </div>
   );
 }
 
