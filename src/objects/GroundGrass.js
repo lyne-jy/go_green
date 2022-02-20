@@ -6,7 +6,7 @@ import { useLoader } from '@react-three/fiber'
 
 const GroundGrass = (props) => {
     const obj = useLoader(GLTFLoader, '/obj/ground_grass.glb')
-    const txt = useLoader(TextureLoader, '/obj/ground_grass.png')
+    // const txt = useLoader(TextureLoader, '/obj/ground_grass.png')
 
     return (
         <mesh position={props.position}>

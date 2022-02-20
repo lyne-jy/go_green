@@ -30,6 +30,20 @@ const tree_types = [
     TreeThin
 ];
 
+
+const makeGround = () => {
+    let a = [];
+
+    for (let x = -15; x < 5; x++) {
+        for (let y = -15; y < 5; y++) {
+            a.push(<GroundGrass position={[x*0.8, y*0.8, -5]} />);
+        }
+    }
+
+    // return dom in a
+    return a;
+}
+
 const ForestCanvas = () => {
     return (
         <Suspense fallback={ <></> }>
@@ -37,13 +51,16 @@ const ForestCanvas = () => {
                 <color attach="background" args={['#d6f9ff']} />
                 <spotLight position={[5, 5, 0]} angle={90} intensity={0.7} />
                 <spotLight position={[5, 5, 90]} angle={180} intensity={0.9} />
+                <spotLight position={[5, 50, 0]} angle={180} intensity={0.6} />
                 <ambientLight position={[1, 1, 1]} intensity={100} />
                 <TreeCone position={[0, -0.6, 0]} />
                 <TreeBlocks position={[1, -0.6, 0]} />
                 <TreePineRoundC position={[2, -0.6, 0]} />
-                <GroundGrass position={[-3, -4, -5]} />
-                <GroundGrass position={[-5, -4, -5]} />
-                <GroundGrass position={[-7, -4, -5]} />
+
+                {/* {makeGround()} */}
+
+                
+
             </Canvas>
         </Suspense>
     )
