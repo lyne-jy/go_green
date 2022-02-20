@@ -13,8 +13,8 @@ const App = () => {
     const [loading, setLoading] = useState(false);
     const [finished, setFinished] = useState(false);
     const [showSelection, setShowSelection] = useState(false);
-    const [transport, setTransport] = useState("");
-
+    const [transport, setTransport] = useState({});
+    const [data, setData] = useState(0);
     const [open, setOpen] = useState(false);
 
     const transports = [
@@ -69,26 +69,16 @@ const App = () => {
             setStartMarker([]);
             setEndMarker([]);
             setOpen(true);
-            console.log(getDistance() * transport.rate);
-
+            setData(Math.round(getDistance() * transport.rate * 1000));
             return;
         }
         setLoading(true);
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(position => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                if (startMarker.length === 0) {
-                    setStartMarker([latitude, longitude]);
-                }
-                if (startMarker.length !== 0 && endMarker.length === 0) {
-                    setEndMarker([latitude, longitude]);
-                    setFinished(true);
-                }
-                setCenter([latitude, longitude])
-                setLoading(false);
-                setZoom(16);
-            });
+        if (startMarker.length !== 0 && endMarker.length === 0) {
+            const latitude = startMarker[0] + Math.random() / 10;
+            const longitude = startMarker[1] + Math.random() / 10;
+            setEndMarker([latitude, longitude]);
+            setCenter([latitude, longitude]);
+            setFinished(true);
         }
     }
 
@@ -108,7 +98,7 @@ const App = () => {
                 setZoom(16);
             });
         }
-    });
+    }, []);
 
     return (
         <div>
@@ -135,7 +125,7 @@ const App = () => {
                     </div>
                 </div>
             </Dialog>
-            <Checkout open={open} setOpen={setOpen} />
+            <Checkout open={open} setOpen={setOpen} data={data}/>
             <div className="fixed w-full h-full z-0">
                 <Map zoom={zoom} center={center}>
                     {startMarker.length !== 0 && <Marker width={50} anchor={startMarker}/>}
@@ -143,19 +133,19 @@ const App = () => {
                 </Map>
             </div>
             <div className="z-40 w-full bottom-0 absolute flex justify-center">
-                {!transport && <button
+                {Object.keys(transport).length === 0 && <button
                     onClick={handleTransportAdd}
                     className="absolute bottom-10 border border-transparent rounded-full shadow-sm text-white bg-green-400 h-20 w-20"
                 >
                     Select
                 </button>}
-                {transport && <button
+                {Object.keys(transport).length !== 0 && <button
                     onClick={handlePositionAdd}
                     className="absolute bottom-10 border border-transparent rounded-full shadow-sm text-white bg-green-400 h-20 w-20"
                 >
                     {getButtonContent()}
                 </button>}
-                {transport && <button
+                {Object.keys(transport).length !== 0 && <button
                     onClick={handleTransportAdd}
                     disabled={startMarker.length !== 0}
                     className="p-3 bg-white absolute bottom-0 right-20 mb-10 border border-transparent rounded-full shadow-sm text-white"

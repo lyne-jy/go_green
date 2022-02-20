@@ -5,7 +5,7 @@ import { CheckIcon } from "@heroicons/react/outline";
 
 import "./ProgressBar.css";
 
-export default function Checkout({open, setOpen}) {
+export default function Checkout({open, setOpen, data}) {
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -66,7 +66,7 @@ export default function Checkout({open, setOpen}) {
                   </div>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      You save 220g carbon emission for the earth. Thank you for
+                      You save {data}g carbon emission for the earth. Thank you for
                       using the sustainable transportations!
                     </p>
                   </div>
