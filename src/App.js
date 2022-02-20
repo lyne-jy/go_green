@@ -64,12 +64,25 @@ const App = () => {
     }
 
     const handlePositionAdd = () => {
+        if (startMarker.length === 0) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    setStartMarker([latitude, longitude]);
+                    setCenter([latitude, longitude])
+                    setLoading(false);
+                    setZoom(16);
+                })
+            }
+        }
         if (finished) {
             setFinished(false);
             setStartMarker([]);
             setEndMarker([]);
             setOpen(true);
             setData(Math.round(getDistance() * transport.rate * 1000));
+            setLoading(false);
             return;
         }
         setLoading(true);
