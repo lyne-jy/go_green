@@ -1,5 +1,7 @@
 import React from "react";
 
+import ForestCanvas from "../components/ForestCanvas";
+
 const trees = [
   {
     treeId: 1,
@@ -24,6 +26,7 @@ const trees = [
 const Forest = () => {
   return (
     <>
+      <ForestCanvas />
       <div className="container mx-auto px-4">
         <ul className="divide-y divide-gray-200">
           {trees.map((tree) => (
