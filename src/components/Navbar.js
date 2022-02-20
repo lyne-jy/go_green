@@ -6,7 +6,7 @@ import { ChevronLeftIcon } from "@heroicons/react/outline";
 
 export default function Navbar(props) {
   return (
-    <Disclosure as="nav" className="bg-white shadow-sm">
+    <Disclosure as="nav" className={props.className || "bg-white shadow-sm"}>
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
