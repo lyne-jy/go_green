@@ -9,7 +9,7 @@ function classNames(...classes) {
 
 export default function Navbar(props) {
   return (
-    <Disclosure as="nav" className={classNames((props.className ? props.className : "bg-white shadow-sm"), "")}>
+    <Disclosure as="nav" className={classNames((props.className ? props.className : "bg-white shadow-sm"), "fixed top-0 w-full z-40")}>
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
