@@ -1,15 +1,5 @@
-.ProgressBar {
-  animation-name: pb;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes pb {
-  0% {
-    width: 45%;
-  }
-  100% {
-    width: 70%;
-  }
+.progress-bar {
+  transition-property: all;
+  transition-duration: .3s;
+  transition-timing-function: ease-in-out;
 }
