@@ -97,6 +97,7 @@ const App = () => {
             navigator.geolocation.getCurrentPosition(position => {
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
+                setStartMarker([latitude, longitude]);
                 setCenter([latitude, longitude])
                 setLoading(false);
                 setZoom(16);
