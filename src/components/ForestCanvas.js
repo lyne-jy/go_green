@@ -20,7 +20,7 @@ import GroundGrass from '../objects/GroundGrass';
 const ForestCanvas = ({ trees }) => {
 
 
-    for (let t = 0; t < Math.random() * 24 + 10; t++) {
+    for (let t = 0; t < Math.random() * 14 + 10; t++) {
         let rand = Math.random() * 10;
         let tree = "";
 
@@ -50,9 +50,16 @@ const ForestCanvas = ({ trees }) => {
             tree.tree = "Grass"
         }
 
+        let n = Math.random();
+        if (n < 0.5) {
+            n = -1;
+        } else {
+            n = 1;
+        }
+
         tree.comp = lazy(() => import("../objects/" + tree.tree))
-        tree.x = Math.random() * -3;
-        tree.y = Math.random() * -3;
+        tree.x = Math.random() * 3 * n;
+        tree.y = Math.random() * 3 * n;
     }
 
 
