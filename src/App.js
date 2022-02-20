@@ -9,6 +9,7 @@ const App = () => {
     const [center, setCenter] = useState([51.044, -114.062]);
     const [startMarker, setStartMarker] = useState([])
     const [endMarker, setEndMarker] = useState([])
+
     const [zoom, setZoom] = useState(10);
     const [loading, setLoading] = useState(false);
     const [finished, setFinished] = useState(false);
@@ -83,6 +84,7 @@ const App = () => {
             setOpen(true);
             setData(Math.round(getDistance() * transport.rate * 1000));
             setLoading(false);
+            setTransport({});
             return;
         }
         setLoading(true);
