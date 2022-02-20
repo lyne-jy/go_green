@@ -14,6 +14,7 @@ import TreePineTallA from '../objects/TreePineTallA';
 import TreePlateau from '../objects/TreePlateau';
 import TreeTall from '../objects/TreeTall';
 import TreeThin from '../objects/TreeThin';
+import GroundGrass from '../objects/GroundGrass';
 
 const tree_types = [
     TreeCone,
@@ -40,6 +41,7 @@ const ForestCanvas = () => {
                 <TreeCone position={[0, -0.6, 0]} />
                 <TreeBlocks position={[1, -0.6, 0]} />
                 <TreePineRoundC position={[2, -0.6, 0]} />
+                <GroundGrass position={[5,5,5]} />
             </Canvas>
         </Suspense>
     )
