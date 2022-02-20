@@ -20,7 +20,7 @@ ReactDOM.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/forest" element={components(<Navbar />, <Forest />)} />
+            <Route path="/forest" element={components(<Navbar title="Forest" backButton />, <Forest />)} />
         </Routes>
     </BrowserRouter>,
     document.getElementById('root')
