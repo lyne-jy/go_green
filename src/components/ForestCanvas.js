@@ -3,18 +3,6 @@ import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 
 import './SmallTreeIcon.css';
-import TreeBlocks from '../objects/TreeBlocks';
-import TreeCone from '../objects/TreeCone'
-import TreeDetailed from '../objects/TreeDetailed';
-import TreeFat from '../objects/TreeFat';
-import TreeOak from '../objects/TreeOak';
-import TreePalmDetailedTall from '../objects/TreePalmDetailedTall';
-import TreePineRoundC from '../objects/TreePineRoundC';
-import TreePineTallA from '../objects/TreePineTallA';
-import TreePlateau from '../objects/TreePlateau';
-import TreeTall from '../objects/TreeTall';
-import TreeThin from '../objects/TreeThin';
-import GroundGrass from '../objects/GroundGrass';
 
 
 const ForestCanvas = ({ trees }) => {
