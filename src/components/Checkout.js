@@ -14,7 +14,7 @@ export default function Checkout({ open, setOpen, data }) {
     if (open) {
       setTimeout(() => {
         setTotal(total + data + 1000);
-      }, 2000);
+      }, 500);
     }
   }, [open]);
 
