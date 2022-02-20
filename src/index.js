@@ -13,8 +13,75 @@ function components(...components) {
     return <>{components.map((component) => component)}</>;
 }
 
-const data = Math.round(Math.random() * 5000);
+
+const data = {
+    current: Math.round(Math.random() * 5000),
+    trees: [
+        {
+            treeType: "Cone Tree",
+            image: "../obj/tree_cone.png",
+            tree: "TreeCone",
+            date: "Planted at 2022-02-19 15:30",
+        },
+        {
+            treeType: "Palm Tree",
+            image: "../obj/tree_palmDetailedTall.png",
+            tree: "TreePalmDetailedTall",
+            date: "Planted at 2022-02-19 17:50",
+        },
+        {
+            treeType: "Pine Tree",
+            image: "../obj/tree_pineRoundC.png",
+            tree: "TreePineRoundC",
+            date: "Planted at 2022-02-19 17:50",
+        },
+        {
+            treeType: "Pine Tree",
+            image: "../obj/tree_pineRoundC.png",
+            tree: "TreePineRoundC",
+            date: "Planted at 2022-02-19 17:50",
+        },
+        {
+            treeType: "Pine Tree",
+            image: "../obj/tree_pineRoundC.png",
+            tree: "TreePineRoundC",
+            date: "Planted at 2022-02-19 17:50",
+        },
+        {
+            treeType: "Pine Tree",
+            image: "../obj/tree_pineRoundC.png",
+            tree: "TreePineRoundC",
+            date: "Planted at 2022-02-19 17:50",
+        },
+        {
+            treeType: "Pine Tree",
+            image: "../obj/tree_pineRoundC.png",
+            tree: "TreePineRoundC",
+            date: "Planted at 2022-02-19 17:50",
+        },
+        {
+            treeType: "Pine Tree",
+            image: "../obj/tree_pineRoundC.png",
+            tree: "TreePineRoundC",
+            date: "Planted at 2022-02-19 17:50",
+        },
+        {
+            treeType: "Pine Tree",
+            image: "../obj/tree_pineRoundC.png",
+            tree: "TreePineRoundC",
+            date: "Planted at 2022-02-19 17:50",
+        },
+        {
+            treeType: "Pine Tree",
+            image: "../obj/tree_pineRoundC.png",
+            tree: "TreePineRoundC",
+            date: "Planted at 2022-02-19 17:50",
+        },
+    ]
+};
+
 export const DataContext = React.createContext(data);
+
 
 ReactDOM.render(
     <DataContext.Provider value={data}>

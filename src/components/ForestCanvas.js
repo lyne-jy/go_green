@@ -1,12 +1,13 @@
-import React, {lazy} from 'react'
+import React, { lazy, useContext } from 'react'
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 
 import './SmallTreeIcon.css';
+import { DataContext } from '..';
 
-
-const ForestCanvas = ({ trees }) => {
-
+const ForestCanvas = () => {
+    const data = useContext(DataContext);
+    const trees = data.trees;
 
     for (let t = 0; t < Math.random() * 14 + 10; t++) {
         let rand = Math.random() * 10;
