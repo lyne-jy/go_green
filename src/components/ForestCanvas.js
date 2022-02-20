@@ -19,11 +19,42 @@ import GroundGrass from '../objects/GroundGrass';
 
 const ForestCanvas = ({ trees }) => {
 
+
+    for (let t = 0; t < Math.random() * 24 + 10; t++) {
+        let rand = Math.random() * 10;
+        let tree = "";
+
+        if (rand < 2) {
+            tree = "Grass";
+        } else if (rand < 4) {
+            tree = "FlowerReda";
+        } else if (rand < 6) {
+            tree = "MushroomRed"
+        } else if (rand < 7) {
+            tree = "MushroomTan"
+        } else if(rand < 8) {
+            tree = "FlowerRedc"
+        } else {
+            tree = "GrassLarge"
+        }
+
+        let new_tree = {};
+        new_tree.tree = tree;
+        trees.push(new_tree);
+    }
+
     for (let tree of trees) {
+        console.log(tree.comp);
+
+        if (!tree.tree) {
+            tree.tree = "Grass"
+        }
+
         tree.comp = lazy(() => import("../objects/" + tree.tree))
         tree.x = Math.random() * -3;
         tree.y = Math.random() * -3;
     }
+
 
     return (
         <Suspense fallback={ <></> }>
@@ -35,8 +66,8 @@ const ForestCanvas = ({ trees }) => {
                 <ambientLight position={[1, 1, 1]} intensity={100} />
 
                 {
-                    trees.map((tree) => (
-                        <tree.comp position={[tree.x, tree.y, 0]} />
+                    trees.map((tree, key) => (
+                        <tree.comp key={key + Math.random() * 1000} position={[tree.x, tree.y, 0]} />
                         
                     ))
                 }
