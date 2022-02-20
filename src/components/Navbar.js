@@ -1,16 +1,8 @@
 /* This navbar requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import React from "react";
+import { Disclosure } from "@headlessui/react";
 import { ChevronLeftIcon } from "@heroicons/react/outline";
 
-const navigation = [
-  { name: "New Green Trip", href: "#", current: true },
-  { name: "My Trees", href: "#", current: false },
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function Navbar(props) {
   return (
@@ -21,7 +13,7 @@ export default function Navbar(props) {
             <div className="relative flex items-center justify-between h-14">
               {
                 props.backButton && 
-                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <div onClick={() => window.history.back()} className="absolute inset-y-0 left-0 flex items-center w-20">
                   <ChevronLeftIcon className="h-5 w-auto" />
                 </div>
               }
