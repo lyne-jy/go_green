@@ -1,6 +1,6 @@
 import './App.css';
 import { Map, Marker } from "pigeon-maps"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 
 import Checkout from './components/Checkout';
@@ -91,6 +91,25 @@ const App = () => {
             });
         }
     }
+
+    useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                if (startMarker.length === 0) {
+                    setStartMarker([latitude, longitude]);
+                }
+                if (startMarker.length !== 0 && endMarker.length === 0) {
+                    setEndMarker([latitude, longitude]);
+                    setFinished(true);
+                }
+                setCenter([latitude, longitude])
+                setZoom(16);
+            });
+        }
+    });
+
     return (
         <div>
             <Dialog open={showSelection}
