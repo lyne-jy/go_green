@@ -3,6 +3,8 @@ import { Map, Marker } from "pigeon-maps"
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 
+import Checkout from './components/Checkout';
+
 const App = () => {
     const [center, setCenter] = useState([51.044, -114.062]);
     const [startMarker, setStartMarker] = useState([])
@@ -12,6 +14,8 @@ const App = () => {
     const [finished, setFinished] = useState(false);
     const [showSelection, setShowSelection] = useState(false);
     const [transport, setTransport] = useState("");
+
+    const [open, setOpen] = useState(false);
 
     const transports = [
         {name: 'bicycle', icon: "./bicycle.png", rate: 0.2},
@@ -64,6 +68,7 @@ const App = () => {
             setFinished(false);
             setStartMarker([]);
             setEndMarker([]);
+            setOpen(true);
             console.log(getDistance() * transport.rate);
 
             return;
@@ -90,12 +95,12 @@ const App = () => {
         <div>
             <Dialog open={showSelection}
                     onClose={() => setShowSelection(false)}
-                    className="z-60 absolute bottom-0 w-full flex justify-center">
+                    className="z-40 absolute bottom-0 w-full flex justify-center">
                 <div className="absolute bottom-0 w-50 mb-40 bg-white p-5 border-b border-gray-200 rounded-md">
 
                     <div>
                         <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Choose your transportation</h3>
-                        <ul role="list" className="mt-5 space-y-6">
+                        <ul className="mt-5 space-y-6">
                             {transports.map((item) => (
                                 <li key={item.name} className="flow-root">
                                     <div
@@ -111,13 +116,14 @@ const App = () => {
                     </div>
                 </div>
             </Dialog>
+            <Checkout open={open} setOpen={setOpen} />
             <div className="fixed w-full h-full z-0">
                 <Map zoom={zoom} center={center}>
                     {startMarker.length !== 0 && <Marker width={50} anchor={startMarker}/>}
                     {endMarker.length !== 0 && <Marker width={50} anchor={endMarker}/>}
                 </Map>
             </div>
-            <div className="z-50 w-full bottom-0 absolute flex justify-center">
+            <div className="z-40 w-full bottom-0 absolute flex justify-center">
                 {!transport && <button
                     onClick={handleTransportAdd}
                     className="absolute bottom-10 border border-transparent rounded-full shadow-sm text-white bg-green-400 h-20 w-20"

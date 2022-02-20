@@ -7,6 +7,7 @@ import "./index.css";
 import App from "./App";
 import Forest from "./pages/Forest";
 import Navbar from "./components/Navbar";
+import Checkout from "./components/Checkout";
 
 function components(...components) {
   return <>{components.map((component) => component)}</>;
