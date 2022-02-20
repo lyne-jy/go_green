@@ -1,7 +1,7 @@
 import './App.css';
 import { Map, Marker } from "pigeon-maps"
-import { useState } from "react";
-import { Dialog } from "@headlessui/react";
+import { Fragment,useState } from "react";
+import { Dialog ,Transition} from "@headlessui/react";
 
 import Checkout from './components/Checkout';
 
@@ -93,11 +93,20 @@ const App = () => {
     }
     return (
         <div>
-            <Dialog open={showSelection}
+        <Transition.Root show={showSelection} as={Fragment}>
+            <Dialog 
                     onClose={() => setShowSelection(false)}
                     className="z-40 absolute bottom-0 w-full flex justify-center">
                 <div className="absolute bottom-0 w-50 mb-40 bg-white p-5 border-b border-gray-200 rounded-md">
-
+                <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
                     <div>
                         <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Choose your transportation</h3>
                         <ul className="mt-5 space-y-6">
@@ -114,8 +123,10 @@ const App = () => {
                             ))}
                         </ul>
                     </div>
+                </Transition.Child>
                 </div>
             </Dialog>
+        </Transition.Root>    
             <Checkout open={open} setOpen={setOpen} />
             <div className="fixed w-full h-full z-0">
                 <Map zoom={zoom} center={center}>
@@ -123,6 +134,7 @@ const App = () => {
                     {endMarker.length !== 0 && <Marker width={50} anchor={endMarker}/>}
                 </Map>
             </div>
+
             <div className="z-40 w-full bottom-0 absolute flex justify-center">
                 {!transport && <button
                     onClick={handleTransportAdd}
@@ -130,6 +142,7 @@ const App = () => {
                 >
                     Select
                 </button>}
+
                 {transport && <button
                     onClick={handlePositionAdd}
                     className="absolute bottom-10 border border-transparent rounded-full shadow-sm text-white bg-green-400 h-20 w-20"
@@ -144,6 +157,8 @@ const App = () => {
                     <img src={transport.icon} className="flex-shrink-0 h-6 w-6 text-gray-400"/>
                 </button>}
             </div>
+
+
         </div>
     );
 }
