@@ -8,7 +8,7 @@ const TreeCone = () => {
     const txt = useLoader(TextureLoader, '/obj/tree_cone.png')
 
     return (
-        <mesh position={[0, 0, 0]}>
+        <mesh>
             <primitive object={obj.scene} map={txt} />
         </mesh>
     )
