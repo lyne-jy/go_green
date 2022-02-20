@@ -14,7 +14,7 @@ function components(...components) {
 }
 
 const data = Math.round(Math.random() * 5000);
-const DataContext = React.createContext(data);
+export const DataContext = React.createContext(data);
 
 ReactDOM.render(
     <DataContext.Provider value={data}>

@@ -2,7 +2,6 @@ import './App.css';
 import { Map, Marker } from "pigeon-maps"
 import { Fragment, useState, useEffect } from "react";
 import { Dialog ,Transition} from "@headlessui/react";
-import { motion } from "framer-motion";
 
 import Checkout from './components/Checkout';
 
