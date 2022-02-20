@@ -1,7 +1,7 @@
 import './App.css';
 import { Map, Marker } from "pigeon-maps"
-import { useState, useEffect } from "react";
-import { Dialog } from "@headlessui/react";
+import { Fragment, useState, useEffect } from "react";
+import { Dialog ,Transition} from "@headlessui/react";
 
 import Checkout from './components/Checkout';
 
@@ -87,14 +87,9 @@ const App = () => {
             navigator.geolocation.getCurrentPosition(position => {
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
-                if (startMarker.length === 0) {
-                    setStartMarker([latitude, longitude]);
-                }
-                if (startMarker.length !== 0 && endMarker.length === 0) {
-                    setEndMarker([latitude, longitude]);
-                    setFinished(true);
-                }
+                setStartMarker([latitude, longitude]);
                 setCenter([latitude, longitude])
+                setLoading(false);
                 setZoom(16);
             });
         }
@@ -102,11 +97,20 @@ const App = () => {
 
     return (
         <div>
-            <Dialog open={showSelection}
+        <Transition.Root show={showSelection} as={Fragment}>
+            <Dialog 
                     onClose={() => setShowSelection(false)}
                     className="z-40 absolute bottom-0 w-full flex justify-center">
                 <div className="absolute bottom-0 w-50 mb-40 bg-white p-5 border-b border-gray-200 rounded-md">
-
+                <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
                     <div>
                         <h3 className="text-sm font-medium tracking-wide text-gray-500 uppercase">Choose your transportation</h3>
                         <ul className="mt-5 space-y-6">
@@ -123,6 +127,7 @@ const App = () => {
                             ))}
                         </ul>
                     </div>
+                </Transition.Child>
                 </div>
             </Dialog>
             <Checkout open={open} setOpen={setOpen} data={data}/>
@@ -132,6 +137,7 @@ const App = () => {
                     {endMarker.length !== 0 && <Marker width={50} anchor={endMarker}/>}
                 </Map>
             </div>
+
             <div className="z-40 w-full bottom-0 absolute flex justify-center">
                 {Object.keys(transport).length === 0 && <button
                     onClick={handleTransportAdd}
@@ -153,6 +159,7 @@ const App = () => {
                     <img src={transport.icon} className="flex-shrink-0 h-6 w-6 text-gray-400"/>
                 </button>}
             </div>
+        </Transition.Root>
         </div>
     );
 }
