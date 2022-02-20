@@ -4,9 +4,31 @@ import { Canvas } from '@react-three/fiber'
 import { Plane } from "@react-three/drei";
 
 import './SmallTreeIcon.css';
-import TreeCone from '../objects/TreeCone'
 import TreeBlocks from '../objects/TreeBlocks';
+import TreeCone from '../objects/TreeCone'
+import TreeDetailed from '../objects/TreeDetailed';
+import TreeFat from '../objects/TreeFat';
+import TreeOak from '../objects/TreeOak';
+import TreePalmDetailedTall from '../objects/TreePalmDetailedTall';
 import TreePineRoundC from '../objects/TreePineRoundC';
+import TreePineTallA from '../objects/TreePineTallA';
+import TreePlateau from '../objects/TreePlateau';
+import TreeTall from '../objects/TreeTall';
+import TreeThin from '../objects/TreeThin';
+
+const tree_types = [
+    TreeCone,
+    TreeBlocks,
+    TreeDetailed,
+    TreeFat,
+    TreeOak,
+    TreePalmDetailedTall,
+    TreePineRoundC,
+    TreePineTallA,
+    TreePlateau,
+    TreeTall,
+    TreeThin
+];
 
 const ForestCanvas = () => {
     return (
