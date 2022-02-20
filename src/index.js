@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
 import Forest from "./pages/Forest";
+import ForestCanvas from './components/ForestCanvas';
 import Navbar from './components/Navbar';
 
 function components(...components) {
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Routes>
             <Route path="/" element={<App />} />
             <Route path="/forest" element={components(<Navbar title="Forest" backButton />, <Forest />)} />
+            <Route path="/forest/canvas" element={components(<Navbar title="Forest" backButton />, <ForestCanvas />)} />
         </Routes>
     </BrowserRouter>,
     document.getElementById('root')

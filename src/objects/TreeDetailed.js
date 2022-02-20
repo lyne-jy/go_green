@@ -3,15 +3,15 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { useLoader } from '@react-three/fiber'
 
-const TreeThin = () => {
-    const obj = useLoader(GLTFLoader, '/obj/tree_thin.glb')
-    const txt = useLoader(TextureLoader, '/obj/tree_thin.png')
+const TreeDetailed = (props) => {
+    const obj = useLoader(GLTFLoader, '/obj/tree_detailed.glb')
+    const txt = useLoader(TextureLoader, '/obj/tree_detailed.png')
 
     return (
-        <mesh>
+        <mesh position={props.position}>
             <primitive object={obj.scene} map={txt} />
         </mesh>
     )
 }
 
-export default TreeThin
+export default TreeDetailed

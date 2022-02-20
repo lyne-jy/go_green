@@ -1,13 +1,4 @@
 
 .small-tree-icon{
-    width: 13rem !important;
-    height: 13rem !important;
-    margin-bottom: -2rem !important;
-    margin-left: -2.5rem;
-}
-
-.small-tree-icon-wrapper{
-    overflow: hidden !important;
-    height: 8rem !important;
-    width: 8rem !important;
+    height: 30rem !important;
 }

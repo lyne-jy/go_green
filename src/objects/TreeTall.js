@@ -3,15 +3,15 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { useLoader } from '@react-three/fiber'
 
-const TreeCone = () => {
-    const obj = useLoader(GLTFLoader, '/obj/tree_cone.glb')
-    const txt = useLoader(TextureLoader, '/obj/tree_cone.png')
+const TreeTall = (props) => {
+    const obj = useLoader(GLTFLoader, '/obj/tree_tall.glb')
+    const txt = useLoader(TextureLoader, '/obj/tree_tall.png')
 
     return (
-        <mesh>
+        <mesh position={props.position}>
             <primitive object={obj.scene} map={txt} />
         </mesh>
     )
 }
 
-export default TreeCone
+export default TreeTall
