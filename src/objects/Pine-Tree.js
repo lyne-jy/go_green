@@ -4,7 +4,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { useLoader } from '@react-three/fiber'
 
-const Pine-Tree = (props) => {
+const Pine_Tree = (props) => {
     const obj = useLoader(GLTFLoader, '/obj/pine-tree.glb')
     const txt = useLoader(TextureLoader, '/obj/pine-tree.png')
 
@@ -15,4 +15,4 @@ const Pine-Tree = (props) => {
     )
 }
 
-export default Pine-Tree
+export default Pine_Tree

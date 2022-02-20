@@ -1,24 +1,30 @@
 import React from "react";
 
 import ForestCanvas from "../components/ForestCanvas";
+// import TreeCone from "../objects/TreeCone"
+// import TreePalmDetailedTall from "../objects/TreePalmDetailedTall"
+// import TreePineRoundC from "../objects/TreePineRoundC"
 
 const trees = [
   {
     treeId: 1,
     treeType: "Cone Tree",
     image: "../obj/tree_cone.png",
+    tree: "TreeCone",
     dateMsg: "Planted at 2022-02-19 15:30",
   },
   {
     treeId: 2,
     treeType: "Palm Tree",
     image: "../obj/tree_palmDetailedTall.png",
+    tree: "TreePalmDetailedTall",
     dateMsg: "Planted at 2022-02-19 17:50",
   },
   {
     treeId: 3,
     treeType: "Pine Tree",
     image: "../obj/tree_pineRoundC.png",
+    tree: "TreePineRoundC",
     dateMsg: "Planted at 2022-02-19 17:50",
   },
 ];
@@ -26,7 +32,7 @@ const trees = [
 const Forest = () => {
   return (
     <>
-      <ForestCanvas />
+      <ForestCanvas trees={trees} />
       <div className="container mx-auto px-4">
         <ul className="divide-y divide-gray-200">
           {trees.map((tree) => (

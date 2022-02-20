@@ -4,7 +4,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { useLoader } from '@react-three/fiber'
 
-const Coconut-Tree = (props) => {
+const Coconut_Tree = (props) => {
     const obj = useLoader(GLTFLoader, '/obj/coconut-tree.glb')
     const txt = useLoader(TextureLoader, '/obj/coconut-tree.png')
 
@@ -15,4 +15,4 @@ const Coconut-Tree = (props) => {
     )
 }
 
-export default Coconut-Tree
+export default Coconut_Tree

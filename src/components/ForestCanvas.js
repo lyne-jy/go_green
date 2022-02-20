@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {lazy} from 'react'
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 
@@ -17,7 +17,14 @@ import TreeThin from '../objects/TreeThin';
 import GroundGrass from '../objects/GroundGrass';
 
 
-const ForestCanvas = () => {
+const ForestCanvas = ({ trees }) => {
+
+    for (let tree of trees) {
+        tree.comp = lazy(() => import("../objects/" + tree.tree))
+        tree.x = Math.random() * -3;
+        tree.y = Math.random() * -3;
+    }
+
     return (
         <Suspense fallback={ <></> }>
             <Canvas colorManagement camera={{ position: [45, 45, 45], fov: 2, zoom: 0.4 }} className="small-tree-icon">
@@ -26,10 +33,13 @@ const ForestCanvas = () => {
                 <spotLight position={[5, 5, 90]} angle={180} intensity={0.9} />
                 <spotLight position={[5, 50, 0]} angle={180} intensity={0.6} />
                 <ambientLight position={[1, 1, 1]} intensity={100} />
-                <TreeCone position={[0, -0.6, 0]} />
-                <TreeBlocks position={[1, -0.6, 0]} />
-                <TreePineRoundC position={[2, -0.6, 0]} />
 
+                {
+                    trees.map((tree) => (
+                        <tree.comp position={[tree.x, tree.y, 0]} />
+                        
+                    ))
+                }
 
             </Canvas>
         </Suspense>
