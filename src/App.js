@@ -1,6 +1,6 @@
 import './App.css';
 import { Map, Marker } from "pigeon-maps"
-import { Fragment,useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Dialog ,Transition} from "@headlessui/react";
 
 import Checkout from './components/Checkout';
@@ -91,6 +91,19 @@ const App = () => {
             });
         }
     }
+
+    useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                setCenter([latitude, longitude])
+                setLoading(false);
+                setZoom(16);
+            });
+        }
+    })
+
     return (
         <div>
         <Transition.Root show={showSelection} as={Fragment}>
