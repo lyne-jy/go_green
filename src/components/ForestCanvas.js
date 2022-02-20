@@ -16,33 +16,6 @@ import TreeTall from '../objects/TreeTall';
 import TreeThin from '../objects/TreeThin';
 import GroundGrass from '../objects/GroundGrass';
 
-const tree_types = [
-    TreeCone,
-    TreeBlocks,
-    TreeDetailed,
-    TreeFat,
-    TreeOak,
-    TreePalmDetailedTall,
-    TreePineRoundC,
-    TreePineTallA,
-    TreePlateau,
-    TreeTall,
-    TreeThin
-];
-
-
-const makeGround = () => {
-    let a = [];
-
-    for (let x = -15; x < 5; x++) {
-        for (let y = -15; y < 5; y++) {
-            a.push(<GroundGrass position={[x*0.8, y*0.8, -5]} />);
-        }
-    }
-
-    // return dom in a
-    return a;
-}
 
 const ForestCanvas = () => {
     return (
@@ -57,9 +30,6 @@ const ForestCanvas = () => {
                 <TreeBlocks position={[1, -0.6, 0]} />
                 <TreePineRoundC position={[2, -0.6, 0]} />
 
-                {/* {makeGround()} */}
-
-                
 
             </Canvas>
         </Suspense>
