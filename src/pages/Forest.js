@@ -8,20 +8,20 @@ import TreeCone from "../components/TreeCone";
 const trees = [
   {
     treeId: 1,
-    treeType: "Pine Tree",
-    image: "./pine-tree.jpeg",
+    treeType: "Cone Tree",
+    image: "../obj/tree_cone.png",
     dateMsg: "Planted at 2022-02-19 15:30",
   },
   {
     treeId: 2,
-    treeType: "Coconut Tree",
-    image: "./coconut-tree.jpeg",
+    treeType: "Palm Tree",
+    image: "../obj/tree_palmDetailedTall.png",
     dateMsg: "Planted at 2022-02-19 17:50",
   },
   {
     treeId: 3,
-    treeType: "Coconut Tree",
-    image: "./coconut-tree.jpeg",
+    treeType: "Pine Tree",
+    image: "../obj/tree_pineRoundC.png",
     dateMsg: "Planted at 2022-02-19 17:50",
   },
 ];
@@ -48,10 +48,7 @@ const Forest = () => {
         <ul className="divide-y divide-gray-200">
           {trees.map((tree) => (
             <li key={tree.treeId} className="py-4 flex">
-              <SmallTreeIcon>
-                <TreeCone />
-              </SmallTreeIcon>
-              {/* <img className="h-10 w-10 rounded-full" src={tree.image} alt="" /> */}
+              <img className="h-10 w-10 rounded-full" src={tree.image} alt="" />
               <div className="ml-3">
                 <p className="text-sm font-medium text-gray-900">
                   {tree.treeType}
@@ -63,43 +60,47 @@ const Forest = () => {
         </ul>
       </div>
 
-      <div className="flex flex-col">
-        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Tree No.
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      Date
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {trees2.map((tree, treeIdx) => (
-                    <tr
-                      key={tree.treeId}
-                      className={treeIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {tree.treeId}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {tree.date}
-                      </td>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col">
+          <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+              <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Tree No.
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                        Date
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {trees2.map((tree) => (
+                      <tr
+                        key={tree.treeId}
+                        className={
+                          tree.treeId % 2 === 0 ? "bg-white" : "bg-gray-50"
+                        }
+                      >
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {tree.treeId}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          {tree.date}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
