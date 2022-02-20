@@ -6,7 +6,6 @@ import { CheckIcon } from "@heroicons/react/outline";
 import "./ProgressBar.css";
 
 export default function Checkout({open, setOpen, data}) {
-
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -60,8 +59,8 @@ export default function Checkout({open, setOpen, data}) {
                   </Dialog.Title>
                   <div className="w-full h-6 bg-green-200 rounded-full dark:bg-green-700 my-5">
                     <div
-                      className="h-6 bg-green-400 rounded-full dark:bg-green-300 ProgressBar"
-                    //style={{ width: "45%" }}
+                        className="h-6 bg-green-400 rounded-full dark:bg-green-300 ProgressBar"
+                        style={{ width: "15%" }}
                     />
                   </div>
                   <div className="mt-2">

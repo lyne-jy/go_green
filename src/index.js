@@ -10,16 +10,21 @@ import Navbar from "./components/Navbar";
 import Checkout from "./components/Checkout";
 
 function components(...components) {
-  return <>{components.map((component) => component)}</>;
+    return <>{components.map((component) => component)}</>;
 }
 
+const data = Math.round(Math.random() * 5000);
+const DataContext = React.createContext(data);
+
 ReactDOM.render(
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={components(<Navbar avatar className="bg-transparent fixed top-0 w-full z-50 py-4 px-2" />, <App />)} />
-            <Route path="/forest" element={components(<Navbar title="Forest" backButton />, <Forest />)} />
-        </Routes>
-    </BrowserRouter>,
+    <DataContext.Provider value={data}>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={components(<Navbar avatar className="bg-transparent fixed top-0 w-full z-50 py-4 px-2"/>, <App/>)}/>
+                <Route path="/forest" element={components(<Navbar title="Forest" backButton/>, <Forest/>)}/>
+            </Routes>
+        </BrowserRouter>
+    </DataContext.Provider>,
     document.getElementById('root')
 );
 
