@@ -7,74 +7,64 @@ import ForestCanvas from "../components/ForestCanvas";
 
 const trees = [
   {
-    treeId: 1,
     treeType: "Cone Tree",
     image: "../obj/tree_cone.png",
     tree: "TreeCone",
-    dateMsg: "Planted at 2022-02-19 15:30",
+    date: "Planted at 2022-02-19 15:30",
   },
   {
-    treeId: 2,
     treeType: "Palm Tree",
     image: "../obj/tree_palmDetailedTall.png",
     tree: "TreePalmDetailedTall",
-    dateMsg: "Planted at 2022-02-19 17:50",
+    date: "Planted at 2022-02-19 17:50",
   },
   {
-    treeId: 3,
     treeType: "Pine Tree",
     image: "../obj/tree_pineRoundC.png",
     tree: "TreePineRoundC",
-    dateMsg: "Planted at 2022-02-19 17:50",
+    date: "Planted at 2022-02-19 17:50",
   },
   {
-    treeId: 3,
     treeType: "Pine Tree",
     image: "../obj/tree_pineRoundC.png",
     tree: "TreePineRoundC",
-    dateMsg: "Planted at 2022-02-19 17:50",
+    date: "Planted at 2022-02-19 17:50",
   },
   {
-    treeId: 3,
     treeType: "Pine Tree",
     image: "../obj/tree_pineRoundC.png",
     tree: "TreePineRoundC",
-    dateMsg: "Planted at 2022-02-19 17:50",
+    date: "Planted at 2022-02-19 17:50",
   },
   {
-    treeId: 3,
     treeType: "Pine Tree",
     image: "../obj/tree_pineRoundC.png",
     tree: "TreePineRoundC",
-    dateMsg: "Planted at 2022-02-19 17:50",
+    date: "Planted at 2022-02-19 17:50",
   },
   {
-    treeId: 3,
     treeType: "Pine Tree",
     image: "../obj/tree_pineRoundC.png",
     tree: "TreePineRoundC",
-    dateMsg: "Planted at 2022-02-19 17:50",
+    date: "Planted at 2022-02-19 17:50",
   },
   {
-    treeId: 3,
     treeType: "Pine Tree",
     image: "../obj/tree_pineRoundC.png",
     tree: "TreePineRoundC",
-    dateMsg: "Planted at 2022-02-19 17:50",
+    date: "Planted at 2022-02-19 17:50",
   },
   {
-    treeId: 3,
     treeType: "Pine Tree",
     image: "../obj/tree_pineRoundC.png",
     tree: "TreePineRoundC",
-    dateMsg: "Planted at 2022-02-19 17:50",
+    date: "Planted at 2022-02-19 17:50",
   },
   {
-    treeId: 3,
     treeType: "Pine Tree",
     image: "../obj/tree_pineRoundC.png",
     tree: "TreePineRoundC",
-    dateMsg: "Planted at 2022-02-19 17:50",
+    date: "Planted at 2022-02-19 17:50",
   },
 ];
 
@@ -93,7 +83,7 @@ const Forest = () => {
                 <p className="text-sm font-medium text-gray-900">
                   {tree.treeType}
                 </p>
-                <p className="text-sm text-gray-500">{tree.dateMsg}</p>
+                <p className="text-sm text-gray-500">{tree.date}</p>
               </div>
             </li>
           ))}
