@@ -1,0 +1,16 @@
+.ProgressBar {
+  width: 45%;
+  animation-name: pb;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pb {
+  0% {
+    width: 45%;
+  }
+  100% {
+    width: 70%;
+  }
+}

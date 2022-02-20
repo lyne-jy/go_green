@@ -3,7 +3,6 @@ import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronLeftIcon } from "@heroicons/react/outline";
 
-
 export default function Navbar(props) {
   return (
     <Disclosure as="nav" className={props.className || "bg-white shadow-sm"}>
@@ -11,12 +10,14 @@ export default function Navbar(props) {
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-14">
-              {
-                props.backButton && 
-                <div onClick={() => window.history.back()} className="absolute inset-y-0 left-0 flex items-center w-20">
+              {props.backButton && (
+                <div
+                  onClick={() => window.history.back()}
+                  className="absolute inset-y-0 left-0 flex items-center w-20"
+                >
                   <ChevronLeftIcon className="h-5 w-auto" />
                 </div>
-              }
+              )}
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center font-semibold">
                   {/* <svg
@@ -41,20 +42,20 @@ export default function Navbar(props) {
                 </div>
               </div>
 
-
-              {
-                props.avatar &&
+              {props.avatar && (
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   <div>
                     <span className="sr-only">Open user menu</span>
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
+                    <a href="http://localhost:3000/forest">
+                      <img
+                        className="h-11 w-11 rounded-full"
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                    </a>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
         </>
