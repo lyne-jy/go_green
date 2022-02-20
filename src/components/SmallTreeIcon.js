@@ -2,8 +2,6 @@ import React from 'react'
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 
-
-import TreeCone from '../components/TreeCone';
 import './SmallTreeIcon.css';
 
 const SmallTreeIcon = (props) => {
