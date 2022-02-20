@@ -116,7 +116,7 @@ const App = () => {
                     </div>
                 </div>
             </Dialog>
-            <Checkout open={open} setOpen={setOpen} />
+            <Checkout open={open} setOpen={setOpen} data={getDistance() * transport.rate}/>
             <div className="fixed w-full h-full z-0">
                 <Map zoom={zoom} center={center}>
                     {startMarker.length !== 0 && <Marker width={50} anchor={startMarker}/>}
