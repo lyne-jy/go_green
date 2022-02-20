@@ -1,15 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
+import Navbar from "./components/nav";
 
 function App() {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </div>
-  );
+  return <Navbar />;
 }
 
 export default App;
