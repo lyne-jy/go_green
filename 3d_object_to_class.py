@@ -46,5 +46,5 @@ for name in f:
     b = b.replace("($class name$)", class_name)
 
 
-    with open("src/components/%s.js" % class_name, "w") as f:
+    with open("src/objects/%s.js" % class_name, "w") as f:
         f.write(b)    

@@ -1,9 +1,10 @@
+
 import React from 'react'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { useLoader } from '@react-three/fiber'
 
-const TreePineRoundC = (props) => {
+const TreePineroundc = (props) => {
     const obj = useLoader(GLTFLoader, '/obj/tree_pineRoundC.glb')
     const txt = useLoader(TextureLoader, '/obj/tree_pineRoundC.png')
 
@@ -14,4 +15,4 @@ const TreePineRoundC = (props) => {
     )
 }
 
-export default TreePineRoundC
+export default TreePineroundc
